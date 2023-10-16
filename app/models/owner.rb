@@ -1,6 +1,7 @@
 class Owner < ApplicationRecord
-    has_many :dogs
+    has_many :owner_dog_breeds
+    has_many :dog_breeds, through: :owner_dog_breeds
     validates :name, presence: true
     validates :email, presence: true, uniqueness: true
-  end
+end
   
