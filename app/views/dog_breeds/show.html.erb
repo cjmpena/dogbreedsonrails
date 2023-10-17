@@ -1,0 +1,14 @@
+<h1>Here are the List of breeds we specialize in!</h1>
+<h1>List of Dog Breeds</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+  <% @dog_breeds.each do |dog_breed| %>
+    <tr>
+      <td><%= dog_breed.name %></td>
+    </tr>
+  <% end %>
+</table>
