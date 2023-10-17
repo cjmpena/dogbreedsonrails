@@ -269,20 +269,20 @@
 # dog_breeds = existing_owner.dog_breeds
 
 # Randomize generator for client and vets
-vet_ids = [1, 2, 3, 4]
+# vet_ids = [1, 2, 3, 4]
 
-100.times do
-  client = Client.find(rand(1..122))
-  client.update(vet_id: vet_ids.sample)
-end
+# 100.times do
+#   client = Client.find(rand(1..122))
+#   client.update(vet_id: vet_ids.sample)
+# end
 
-# Random dog name generator
-dog_names = [
-    'Max', 'Buddy', 'Charlie', 'Rocky', 'Cooper', 'Daisy', 'Lucy', 'Bailey', 'Milo', 'Riley',
-    'Natsu', 'Yuki', 'Em', 'Marley', 'Coco', 'Leo', 'Stella', 'Willow', 'Duke'
-  ]
+# # Random dog name generator
+# dog_names = [
+#     'Max', 'Buddy', 'Charlie', 'Rocky', 'Cooper', 'Daisy', 'Lucy', 'Bailey', 'Milo', 'Riley',
+#     'Natsu', 'Yuki', 'Em', 'Marley', 'Coco', 'Leo', 'Stella', 'Willow', 'Duke'
+#   ]
   
-  Client.all.each do |client|
-    client.update(dog_name: dog_names.sample)
-  end
+#   Client.all.each do |client|
+#     client.update(dog_name: dog_names.sample)
+#   end
 
