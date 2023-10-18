@@ -1,1 +1,12 @@
 <h1>Meet Our Vets!</h1>
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+  <% @vets.each do |vet| %>
+    <tr>
+      <td><%= vet.name %></td>
+    </tr>
+  <% end %>
+</table>
