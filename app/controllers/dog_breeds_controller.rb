@@ -1,5 +1,11 @@
 class DogBreedsController < ApplicationController
     def show
-        @dog_breeds = DogBreed.all
+      @query = params[:query]
+      
+      @dog_breeds = if @query.present?
+                      DogBreed.where('name LIKE ?', "%#{@query}%")
+                    else
+                      DogBreed.all
+                    end
     end
-end
+  end
