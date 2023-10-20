@@ -90,6 +90,12 @@
         </tr>
       <% end %>
     </table>
+
+    <div class="pagination">
+  <%= will_paginate @dog_breeds, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+</div>
+
+
   </div>
 
 </body>
