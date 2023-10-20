@@ -90,6 +90,13 @@
         </tr>
       <% end %>
     </table>
+
+    <div class="pagination">
+  <%= will_paginate @vets, renderer: BootstrapPagination::Rails %>
+</div>
+
+
+
   </div>
 
 </body>
