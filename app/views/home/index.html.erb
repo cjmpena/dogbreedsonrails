@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <h1>BarkWell Animal Hospital</h1>
+    <h1>BarkWell Dog Hospital</h1>
   </head>
   <body>
     <header>
       <nav>
         <ul>
+          <li><%= link_to 'Home', root_path %></li>
           <li><%= link_to 'About', about_path %></li>
           <li><%= link_to 'Vets', vets_path %></li>
           <li><%= link_to 'Dog Breeds', dog_breeds_path %></li>
@@ -16,7 +17,7 @@
 
     <main>
       <div class="content">
-        <h1>Welcome to My Dog Website!</h1>
+        <h1>Where every tail wags and every bark is met with care.</h1>
         <img src="<%= @image_url1 %>" alt="Random Dog Image 1" width="300" height="400">
         <img src="<%= @image_url2 %>" alt="Random Dog Image 2" width="300" height="400">
         <img src="<%= @image_url3 %>" alt="Random Dog Image 3" width="300" height="400">
