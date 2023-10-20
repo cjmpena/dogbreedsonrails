@@ -209,13 +209,9 @@ GEM
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-<<<<<<< HEAD
-    will_paginate (3.1.8)
-=======
     will_paginate (3.3.1)
     will_paginate-bootstrap (1.0.2)
       will_paginate (>= 3.0.3)
->>>>>>> 97c7d2ff41e68d774a99c024ce86095a9e686953
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.6.12)
@@ -239,12 +235,8 @@ DEPENDENCIES
   turbo-rails
   tzinfo-data
   web-console
-<<<<<<< HEAD
-  will_paginate (~> 3.1.0)
-=======
   will_paginate (~> 3.3)
   will_paginate-bootstrap
->>>>>>> 97c7d2ff41e68d774a99c024ce86095a9e686953
 
 RUBY VERSION
    ruby 3.1.2p20
