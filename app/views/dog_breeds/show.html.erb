@@ -1,19 +1,113 @@
-<h1>Here are the List of breeds we specialize in!</h1>
-<h1>List of Dog Breeds</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>List of Dog Breeds</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f8f8f8;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
 
-<%= form_with(url: dog_breeds_path, method: 'get') do %>
-  <%= text_field_tag :query, params[:query] %>
-  <%= submit_tag 'Search' %>
-<% end %>
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px;
+    }
 
-<table>
-  <tr>
-    <th>Name</th>
-  </tr>
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-  <% @dog_breeds.each do |dog_breed| %>
-    <tr>
-      <td><%= dog_breed.name %></td>
-    </tr>
-  <% end %>
-</table>
+    .search-form {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .search-input {
+      padding: 10px;
+      width: 300px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .search-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .search-button:hover {
+      background-color: #0056b3;
+    }
+
+    .breeds-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .breeds-table th,
+    .breeds-table td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ccc;
+    }
+    
+    .pagination {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+    <nav>
+      <ul>
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'About', about_path %></li>
+        <li><%= link_to 'Vets', vets_path %></li>
+        <li><%= link_to 'Dog Breeds', dog_breeds_path %></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="container">
+    <div class="header">
+      <h1 style="font-size: 32px; color: #007bff">Here are the List of breeds we specialize in!</h1>
+    </div>
+
+    <div class="search-form">
+      <%= form_with(url: dog_breeds_path, method: 'get') do %>
+        <%= text_field_tag :query, params[:query], class: 'search-input', placeholder: 'Search' %>
+        <%= submit_tag 'Search', class: 'search-button' %>
+      <% end %>
+    </div>
+
+    <table class="breeds-table">
+      <tr>
+        <th>Name</th>
+      </tr>
+
+      <% @dog_breeds.each do |dog_breed| %>
+        <tr>
+          <td><%= dog_breed.name %></td>
+        </tr>
+      <% end %>
+    </table>
+    
+    <div class="pagination">
+      <%= will_paginate @dog_breeds %>
+    </div>
+  </div>
+</body>
+</html>
