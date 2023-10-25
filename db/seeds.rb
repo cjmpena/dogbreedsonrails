@@ -8,24 +8,24 @@
 # require 'httparty'
 # require 'json'
 
-require File.expand_path('../../config/environment', __FILE__)
+# require File.expand_path('../../config/environment', __FILE__)
 
-class DogBreed < ApplicationRecord
-end
+# class DogBreed < ApplicationRecord
+# end
 
-response = HTTParty.get('https://dog.ceo/api/breeds/list/all')
+# response = HTTParty.get('https://dog.ceo/api/breeds/list/all')
 
-if response.code == 200
-  data = JSON.parse(response.body)
+# if response.code == 200
+#   data = JSON.parse(response.body)
 
-  data['message'].each do |breed, _sub_breeds|
-    DogBreed.create(name: breed)
-  end
+#   data['message'].each do |breed, _sub_breeds|
+#     DogBreed.create(name: breed)
+#   end
 
-  puts 'Data imported successfully'
-else
-  puts 'Failed to fetch data from the API'
-end
+#   puts 'Data imported successfully'
+# else
+#   puts 'Failed to fetch data from the API'
+# end
 
 # owners_data = [
 #     { name: 'Johnathan Smith', email: 'johnathan.smith@mailcompany.com', phone: '+44 20 1234 5678' },
@@ -283,3 +283,23 @@ end
 #     client.update(dog_name: dog_names.sample)
 #   end
 
+Vet.create(name: 'Dr. Paul', specialty: 'Cardiology')
+Vet.create(name: 'Dr. Johnson', specialty: 'Dermatology')
+Vet.create(name: 'Dr. Brown', specialty: 'Surgery')
+Vet.create(name: 'Dr. West', specialty: 'Nutrition')
+Vet.create(name: 'Dr. Yang', specialty: 'Clinical Pharmacology')
+Vet.create(name: 'Dr. Lord', specialty: 'Dermatology')
+
+vets = Vet.all
+
+vets.each do |vet|
+  if vet.name == 'Dr. Jay Jones'
+    vet.update(specialty: 'Behavioral Medicine')
+  elsif vet.name == 'Dr. Manansala'
+    vet.update(specialty: 'Dermatology')
+  elsif vet.name == 'Dr. Wong'
+    vet.update(specialty: 'Emergency and Critical Care')
+  elsif vet.name == 'Dr. Smith'
+    vet.update(specialty: 'Surgery')
+  end
+end

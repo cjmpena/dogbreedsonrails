@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_17_210250) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_25_165948) do
   create_table "clients", force: :cascade do |t|
     t.integer "dog_breed_id", null: false
     t.string "dog_name"
@@ -35,8 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_17_210250) do
 
   create_table "vets", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "specialty"
   end
 
   add_foreign_key "clients", "dog_breeds"

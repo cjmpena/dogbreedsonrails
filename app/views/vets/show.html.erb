@@ -79,21 +79,23 @@
       <h1 style="font-size: 32px; color: #007bff;">Meet Our Vets!</h1>
     </div>
 
-    <table class="vets-table">
+  <table class="vets-table">
+    <tr>
+      <th>Name</th>
+      <th>Get to Know our Doctors</th>
+    </tr>
+
+    <% @vets.each do |vet| %>
       <tr>
-        <th>Name</th>
+        <td><%= vet.name %></td>
+        <td><%= link_to 'View Specialty', vet_specialty_path(vet.id), class: 'btn btn-primary' %></td>
       </tr>
+    <% end %>
+  </table>
 
-      <% @vets.each do |vet| %>
-        <tr>
-          <td><%= vet.name %></td>
-        </tr>
-      <% end %>
-    </table>
-
-    <div class="pagination">
-  <%= will_paginate @vets, renderer: BootstrapPagination::Rails %>
-</div>
+  <div class="pagination">
+    <%= will_paginate @vets, renderer: BootstrapPagination::Rails %>
+  </div>
 
 
 
