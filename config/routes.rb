@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'about', to: 'about#index'
   get 'vets', to: 'vets#show'
   get 'vets/:id/specialty', to: 'vets#specialty', as: 'vet_specialty'
-  get 'dog_breeds', to: 'dog_breeds#show'
+  get 'dog_breeds', to: 'dog_breeds#index'
   # Defines the root path route ("/")
   # root "articles#index"
 end
