@@ -79,6 +79,16 @@
       <h1 style="font-size: 32px; color: #007bff;">Meet Our Vets!</h1>
     </div>
 
+    <ul>
+      <li><%= link_to 'Behavioral Medicine', vets_by_specialty_path('Behavioral Medicine') %></li>
+      <li><%= link_to 'Dermatology', vets_by_specialty_path('Dermatology') %></li>
+      <li><%= link_to 'Surgery', vets_by_specialty_path('Surgery') %></li>
+      <li><%= link_to 'Emergency and Critical Care', vets_by_specialty_path('Emergency and Critical Care') %></li>
+      <li><%= link_to 'Cardiology', vets_by_specialty_path('Cardiology') %></li>
+      <li><%= link_to 'Nutrition', vets_by_specialty_path('Nutrition') %></li>
+      <li><%= link_to 'Clinical Pharmacology', vets_by_specialty_path('Clinical Pharmacology') %></li>
+    </ul>
+
   <table class="vets-table">
     <tr>
       <th>Name</th>
@@ -88,7 +98,7 @@
     <% @vets.each do |vet| %>
       <tr>
         <td><%= vet.name %></td>
-        <td><%= link_to 'View Specialty', vet_specialty_path(vet.id), class: 'btn btn-primary' %></td>
+        <td><%= link_to 'View Profile', vet_specialty_path(vet.id), class: 'btn btn-primary' %></td>
       </tr>
     <% end %>
   </table>
