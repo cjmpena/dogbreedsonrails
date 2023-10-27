@@ -80,16 +80,16 @@
     </div>
 
   <table class="vets-table">
-  <tr>
-    <th>Name</th>
-  </tr>
-
-  <% @vets.each do |vet| %>
     <tr>
-      <td><%= link_to vet.name, vet_specialty_path(vet), class: 'doctor-link' %></td>
+      <th>Name</th>
     </tr>
-  <% end %>
-</table>
+
+    <% @vets.each do |vet| %>
+      <tr>
+        <td><%= link_to vet.name, vet_specialty_path(vet), class: 'doctor-link' %></td>
+      </tr>
+    <% end %>
+  </table>
 
 
   <div class="pagination">
