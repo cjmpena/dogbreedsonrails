@@ -79,6 +79,7 @@
       <h1 style="font-size: 32px; color: #007bff;">Meet Our Vets!</h1>
     </div>
 
+<<<<<<< HEAD
   <table class="vets-table">
     <tr>
       <th>Name</th>
@@ -98,7 +99,42 @@
 
 
 
-  </div>
+=======
+    <h2>Find by Specialty</h2>
+    <ul>
+      <% @specialties.each do |specialty| %>
+        <li><%= link_to specialty, vets_by_specialty_path(specialty) %></li>
+      <% end %>
+    </ul>
 
+    <%= form_tag(vets_path, method: :get) do %>
+      <%= label_tag(:query, "Search for:") %>
+      <%= text_field_tag(:query, params[:query]) %>
+
+      <%= label_tag(:specialty, "Specialty:") %>
+      <%= select_tag(:specialty, options_from_collection_for_select(@specialties, :to_s, :to_s, params[:specialty])) %>
+
+      <%= submit_tag("Search") %>
+      <%= link_to 'Reset', vets_path, class: 'btn btn-secondary' %>
+    <% end %>
+
+    <table class="vets-table">
+      <tr>
+        <th>Name</th>
+        <th>Get to Know our Doctors</th>
+      </tr>
+
+      <% @vets.each do |vet| %>
+        <tr>
+          <td><%= link_to vet.name, vet_specialty_path(vet.id) %></td>
+        </tr>
+      <% end %>
+    </table>
+
+    <div class="pagination">
+      <%= will_paginate @vets, renderer: BootstrapPagination::Rails %>
+    </div>
+>>>>>>> fab8b53de24d322a3dddfec3a125ebc6e79e45ec
+  </div>
 </body>
 </html>
