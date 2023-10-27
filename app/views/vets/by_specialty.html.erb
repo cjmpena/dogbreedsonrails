@@ -15,13 +15,11 @@
     <table class="vets-table">
       <tr>
         <th>Name</th>
-        <th>Specialty</th>
       </tr>
 
       <% @vets.each do |vet| %>
         <tr>
           <td><%= vet.name %></td>
-          <td><%= vet.specialty %></td>
         </tr>
       <% end %>
     </table>
