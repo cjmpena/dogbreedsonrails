@@ -79,37 +79,18 @@
       <h1 style="font-size: 32px; color: #007bff;">Meet Our Vets!</h1>
     </div>
 
-    <ul>
-      <% @specialties.each do |specialty| %>
-        <li><%= link_to specialty, vets_by_specialty_path(specialty) %></li>
-      <% end %>
-    </ul>
-
-    <%= form_tag(vets_path, method: :get) do %>
-      <%= label_tag(:query, "Search for:") %>
-      <%= text_field_tag(:query, params[:query]) %>
-
-      <%= label_tag(:specialty, "Specialty:") %>
-      <%= select_tag(:specialty, options_from_collection_for_select(@specialties, :to_s, :to_s, params[:specialty])) %>
-
-      <%= submit_tag("Search") %>
-      <%= link_to 'Reset', vets_path, class: 'btn btn-secondary' %>
-    <% end %>
-
-
   <table class="vets-table">
-    <tr>
-      <th>Name</th>
-      <th>Get to Know our Doctors</th>
-    </tr>
+  <tr>
+    <th>Name</th>
+  </tr>
 
-    <% @vets.each do |vet| %>
-      <tr>
-        <td><%= vet.name %></td>
-        <td><%= link_to 'View Profile', vet_specialty_path(vet.id), class: 'btn btn-primary' %></td>
-      </tr>
-    <% end %>
-  </table>
+  <% @vets.each do |vet| %>
+    <tr>
+      <td><%= link_to vet.name, vet_specialty_path(vet), class: 'doctor-link' %></td>
+    </tr>
+  <% end %>
+</table>
+
 
   <div class="pagination">
     <%= will_paginate @vets, renderer: BootstrapPagination::Rails %>
