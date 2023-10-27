@@ -80,14 +80,22 @@
     </div>
 
     <ul>
-      <li><%= link_to 'Behavioral Medicine', vets_by_specialty_path('Behavioral Medicine') %></li>
-      <li><%= link_to 'Dermatology', vets_by_specialty_path('Dermatology') %></li>
-      <li><%= link_to 'Surgery', vets_by_specialty_path('Surgery') %></li>
-      <li><%= link_to 'Emergency and Critical Care', vets_by_specialty_path('Emergency and Critical Care') %></li>
-      <li><%= link_to 'Cardiology', vets_by_specialty_path('Cardiology') %></li>
-      <li><%= link_to 'Nutrition', vets_by_specialty_path('Nutrition') %></li>
-      <li><%= link_to 'Clinical Pharmacology', vets_by_specialty_path('Clinical Pharmacology') %></li>
+      <% @specialties.each do |specialty| %>
+        <li><%= link_to specialty, vets_by_specialty_path(specialty) %></li>
+      <% end %>
     </ul>
+
+    <%= form_tag(vets_path, method: :get) do %>
+      <%= label_tag(:query, "Search for:") %>
+      <%= text_field_tag(:query, params[:query]) %>
+
+      <%= label_tag(:specialty, "Specialty:") %>
+      <%= select_tag(:specialty, options_from_collection_for_select(@specialties, :to_s, :to_s, params[:specialty])) %>
+
+      <%= submit_tag("Search") %>
+      <%= link_to 'Reset', vets_path, class: 'btn btn-secondary' %>
+    <% end %>
+
 
   <table class="vets-table">
     <tr>

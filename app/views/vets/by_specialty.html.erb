@@ -3,15 +3,9 @@
 <head>
 </head>
 <body>
-  
+
   <header>
     <nav>
-      <ul>
-        <li><%= link_to 'Home', root_path %></li>
-        <li><%= link_to 'About', about_path %></li>
-        <li><%= link_to 'Vets', vets_path %></li>
-        <li><%= link_to 'Dog Breeds', dog_breeds_path %></li>
-      </ul>
     </nav>
   </header>
 
@@ -21,11 +15,13 @@
     <table class="vets-table">
       <tr>
         <th>Name</th>
+        <th>Specialty</th>
       </tr>
 
       <% @vets.each do |vet| %>
         <tr>
           <td><%= vet.name %></td>
+          <td><%= vet.specialty %></td>
         </tr>
       <% end %>
     </table>
