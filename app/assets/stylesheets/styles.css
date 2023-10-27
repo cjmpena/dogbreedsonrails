@@ -7,9 +7,14 @@ body {
   }
   
   header {
-    background: linear-gradient(to right, #007bff, #4e73df);
+    background: linear-gradient(to right, #9028f2, #668af4);
     padding: 15px 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .custom-header {
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
   
   nav {
@@ -44,16 +49,20 @@ body {
   
   main {
     padding: 20px;
+    min-height: calc(100vh - 110px);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     background-color: #fff;
   }
   
   footer {
-    background: linear-gradient(to right, #4e73df, #007bff);
+    background: linear-gradient(to right, #9028f2, #668af4);
     padding: 15px 0;
     text-align: center;
     color: #fff;
+    clear: both;
   }
+  
+  
   
   

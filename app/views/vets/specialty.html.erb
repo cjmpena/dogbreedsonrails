@@ -6,23 +6,10 @@
   <link rel="stylesheet" href="your-styles.css">
 </head>
 <body>
-
-<header>
-  <nav>
-    <ul>
-      <li><%= link_to 'Home', root_path %></li>
-      <li><%= link_to 'About', about_path %></li>
-      <li><%= link_to 'Vets', vets_path %></li>
-      <li><%= link_to 'Dog Breeds', dog_breeds_path %></li>
-    </ul>
-  </nav>
-</header>
-
-<div class="container">
-  <h3>Meet</h3><h1><%= @vet.name %></h1>
-  <p>Specialty: <%= @vet.specialty %></p>
-  <%= link_to 'Back', vets_path %>
-</div>
-
+  <div class="container my-5">
+    <h1 class="mb-3">Meet <%= @vet.name %></h1>
+    <p class="mb-4">Specialty: <%= @vet.specialty %></p>
+    <%= link_to 'Back', vets_path, class: 'btn btn-secondary' %>
+  </div>
 </body>
 </html>

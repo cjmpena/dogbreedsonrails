@@ -1,39 +1,31 @@
-<header>
-  <nav>
-    <ul>
-      <li><%= link_to 'Home', root_path %></li>
-      <li><%= link_to 'About', about_path %></li>
-      <li><%= link_to 'Vets', vets_path %></li>
-      <li><%= link_to 'Dog Breeds', dog_breeds_path %></li>
-    </ul>
-  </nav>
-</header>
-
 <div class="container">
-  <div class="header">
-    <h1 style="font-size: 32px; color: #007bff">Here are the List of breeds we specialize in!</h1>
+  <div class="header text-center">
+    <h1 class="page-title">Here are the List of breeds we specialize in!</h1>
   </div>
 
-  <div class="search-form">
-    <%= form_with(url: dog_breeds_path, method: 'get') do %>
-      <%= text_field_tag :query, params[:query], class: 'search-input', placeholder: 'Search' %>
-      <%= submit_tag 'Search', class: 'search-button' %>
+  <div class="search-form text-center my-4">
+    <%= form_with(url: dog_breeds_path, method: 'get', class: 'form-inline') do %>
+      <%= text_field_tag :query, params[:query], class: 'form-control mr-2', placeholder: 'Search' %>
+      <%= submit_tag 'Search', class: 'btn btn-primary custom-button' %>
     <% end %>
   </div>
 
-  <table class="breeds-table">
-    <tr>
-      <th>Name</th>
-    </tr>
-
-    <% @dog_breeds.each do |dog_breed| %>
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= dog_breed.name %></td>
+        <th>Name</th>
       </tr>
-    <% end %>
+    </thead>
+    <tbody>
+      <% @dog_breeds.each do |dog_breed| %>
+        <tr>
+          <td><%= dog_breed.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
 
   <div class="pagination">
-    <%= will_paginate @dog_breeds %>
+    <%= will_paginate @dog_breeds, renderer: BootstrapPagination::Rails %>
   </div>
 </div>
